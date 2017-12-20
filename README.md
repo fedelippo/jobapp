@@ -1,4 +1,4 @@
-Setting up an environment for the JobSearch application
+Setting up an environment for the JobApp application
 =====================================================
 
 1. Install a recent version of perl  e.g. <http://perlbrew.pl> `perlbrew install 5.22.1`

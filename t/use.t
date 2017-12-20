@@ -3,8 +3,8 @@
 use strict;
 use Test::Most;
 
-use_ok('JobSearch');
-use_ok('JobSearch::Controller::Public');
+use_ok('JobApp');
+use_ok('JobApp::Controller::Public');
 
 done_testing;
 

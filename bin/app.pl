@@ -10,4 +10,4 @@ BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
 $ENV{MOJO_HOME} = "$FindBin::Bin/..";
 
 use Mojolicious::Commands;
-Mojolicious::Commands->start_app('JobSearch');
+Mojolicious::Commands->start_app('JobApp');
