@@ -1,0 +1,24 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>JobSearch</title>
+        <link rel="stylesheet" href="/css/basic.css">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    </head>
+    <body>
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <img src="/images/logo.png" />
+				<h1>JobSearch web application</h1>
+
+                <p>[% h.welcome.welcome | html -%]</p>
+            </div>
+        </div>
+		<a class="pure-button pure-button-active" href="/admin">Admin page</a><br><br>
+		<a class="pure-button pure-button-active" href="/public">Public page</a>
+
+    </body>
+</html>

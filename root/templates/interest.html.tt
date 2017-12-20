@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+
+[% IF jobsinterested.size > 0 %]
+<strong>Add your name to register your interest</strong>
+<br><br>
+<table class="pure-table pure-table-bordered">
+<thead>
+    <tr>
+        <th>Ref</th><th>Title</th><th>Descr</th><th>Skills</th><th>Category</th><th>Agency</th>
+    </tr>
+</thead>
+<tbody>
+	[% FOREACH job IN jobsinterested %]
+	<tr>
+		<td>[%= job.reference %]</td>
+		<td>[%= job.title %]</td>
+		<td>[%= job.description %]</td>
+		<td>[%= job.skills %]</td>
+		<td>[%= job.category %]</td>
+		<td>[%= job.get_column('agency_name') %]</td>
+	</tr>
+	[% END %]
+</tbody>
+</table>
+<form class="pure-form pure-form-aligned" action="/job/register-interest" method="POST">
+	<fieldset>
+		<div class="pure-control-group">
+			<input type="text" name="name" placeholder="your name">
+		</div>
+		[% FOREACH job IN jobsinterested %]
+		<input type="hidden" name="jobs" value="[%= job.id %]">
+		[% END %]
+		[%= h.submit_button%]
+	</fieldset>
+</form>
+[% ELSE %]
+<strong>You did not select any job.</strong><br>
+[% END%]
+<a class="pure-button" href="/public">Go to public page</a>

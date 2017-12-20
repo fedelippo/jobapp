@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+<a class="pure-button" href="/">Go to Home</a>
+<h2>Admin page</h2>
+
+<form class="pure-form pure-form-aligned" action="/agency/create" method="POST">
+<fieldset>
+[% IF h.flash('agency_saved') %]
+<b>Agency saved!</b>
+[% END %]
+<legend>Add Agencies</legend>
+<div class="pure-control-group">
+	<label>Name:</label>[% h.text_field('name') %]
+	[% h.submit_button %]
+</div>
+</fieldset>
+</form>
+<br>
+
+<form class="pure-form pure-form-aligned" action="/job/create" method="POST">
+<fieldset>
+<legend>Add jobs</legend>
+[% IF h.flash('job_saved') %]
+<b>Job saved!</b>
+[% END %]
+<div class="pure-control-group">
+    <label>Reference:</label>[% h.text_field('reference') %]</div>
+<div class="pure-control-group">
+    <label>Title:</label>[% h.text_field('title') %]</div>
+<div class="pure-control-group">
+    <label>Description:</label>[% h.text_field('description') %]</div>
+<div class="pure-control-group">
+    <label>Category:</label>[% h.text_field('category') %]</div>
+<div class="pure-control-group">
+    <label>Skills:</label>[% h.text_field('skills') %]</div>
+<div class="pure-control-group">
+    <label>Agency:</label>
+        <select name="agency_id">
+[% FOREACH agency IN agency_list %]
+            <option value=[% agency.id %]>[% agency.name %]</option>
+[% END %]
+        </select>
+</div>
+[%=h.submit_button %]
+</fieldset>
+</form>
+
+<form class="pure-form pure-form-aligned" action='candidates/view' method='POST'>
+    <fieldset>
+    <legend>Search candidates</legend>
+        <div class="pure-control-group">
+	        <label>Jobs:</label>
+	        <select name="jobs" multiple size="[% job_list.size%]">
+	        [% FOREACH job IN job_list %]
+		        <option value=[% job.id %]>[% job.title %]</option>
+	        [% END %]
+        </select>
+	    [%=h.submit_button%]
+	    </div>
+    </fieldset>
+</form>
+<a class="pure-button" href="/">Go to Home</a>

@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+<table class="pure-table pure-table-bordered">
+<thead>
+    <tr>
+        <th>Name</th><th>Job</th><th>Others</th>
+    </tr>
+</thead>
+<tbody>
+[% FOREACH candi IN candijobs %]
+<tr>
+<td>[%= candi.name %]</td>
+<td>[%= candi.job_title %]</td>
+    <td>
+    [% FOREACH job IN candi.jobs%]
+        [%= job.job_id%]<br>
+    [% END %]
+    </td>
+</tr>
+[% END %]
+</tbody>
+</table>
+<a class="pure-button" href="/admin">Go to admin page</a>

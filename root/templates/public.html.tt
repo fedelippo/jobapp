@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+<strong>Public</strong>
+
+<fieldset>
+[% IF h.flash('interest_saved') %]
+<strong>Thank you! Your interested has been registered</strong>
+[% END %]
+
+<form class="pure-form pure-form-aligned" action="/job/search" method="POST">
+	<legend>Job Search</legend>
+	<fieldset>
+		<div class="pure-control-group">
+			<label>Job title:</label>
+			<input name="job_title" type="text" placeholder="e.g. Perl dev">
+			<span class="pure-form-message-inline">* Leave it blank to select all.</span>
+		</div>
+		<div class="pure-control-group">
+    		<label>Agency:</label>
+    		<select name="agency_id">
+        		<option value="all">all</option>
+				[% FOREACH agency IN agencies %]
+        		<option value=[% agency.id %]>[% agency.name %]</option>
+				[% END %]
+    		</select>
+		</div>
+		<div class="pure-control-group">
+			<label>Skills:</label>
+			<select name="skill_id">
+				<option value="all">all</option>
+				[% FOREACH skill IN skills %]
+				<option value=[% skill.skills %]>[% skill.skills %]</option>
+				[% END %]
+			</select>
+		</div>
+		<div class="pure-control-group">
+			<label>Category:</label>
+			<select name="category_id">
+				<option value="all">all</option>
+				[% FOREACH category IN categories %]
+				<option value=[% category.category %]>[% category.category %]</option>
+				[% END %]
+			</select>
+		</div>
+		[%=h.submit_button%]
+	</fieldset>
+</form>
+<a class="pure-button" href="/">Go to Home</a>

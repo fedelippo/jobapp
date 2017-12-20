@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+<form class="pure-form" action="/job/interest" method="POST">
+<fieldset>
+<table class="pure-table pure-table-bordered">
+<thead>
+    <tr>
+        <th>Ref</th><th>Title</th><th>Descr</th><th>Skills</th><th>Category</th><th>Agency</th><th>Interested</th>
+    </tr>
+</thead>
+<tbody>
+
+[% FOREACH job IN joblist %]
+	<tr>
+		<td>[%= job.reference %]</td>
+		<td>[%= job.title %]</td>
+		<td>[%= job.description %]</td>
+		<td>[%= job.skills %]</td>
+		<td>[%= job.category %]</td>
+		<td>[%= job.get_column('agency_name') %]</td>
+		<td><label class="pure-checkbox"><input type="checkbox" name="jobs" value="[%=job.id%]"></label></td>
+	</tr>
+[% END %]
+</tbody>
+</table>
+[%= h.submit_button%]
+</fieldset>
+</form>
