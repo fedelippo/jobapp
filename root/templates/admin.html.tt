@@ -7,6 +7,11 @@
 [% IF h.flash('agency_saved') %]
 <b>Agency saved!</b>
 [% END %]
+
+[% IF h.flash('agency_deleted') %]
+<b>Agency deleted!</b>
+[% END %]
+
 <legend>Add Agencies</legend>
 <div class="pure-control-group">
 	<label>Name:</label>[% h.text_field('name') %]
@@ -22,6 +27,11 @@
 [% IF h.flash('job_saved') %]
 <b>Job saved!</b>
 [% END %]
+
+[% IF h.flash('job_deleted') %]
+<b>Job deleted!</b>
+[% END %]
+
 <div class="pure-control-group">
     <label>Reference:</label>[% h.text_field('reference') %]</div>
 <div class="pure-control-group">

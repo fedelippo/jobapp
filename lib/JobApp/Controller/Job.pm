@@ -29,6 +29,14 @@ sub create {
 	$self->redirect_to('admin');
 }
 
+sub delete {
+	my ($self) = @_;
+	my $job = $self->db->resultset('Jobs')->find({reference=>$self->param('reference')});
+	$job->delete;
+	$self->flash('job_deleted'=>1);
+	$self->redirect_to('admin');
+}
+
 sub search {
 	my ($self) = @_;
 	my %filters = ();

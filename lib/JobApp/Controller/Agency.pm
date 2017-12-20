@@ -23,4 +23,17 @@ sub create {
 	$self->flash(agency_saved => 1);
 	$self->redirect_to('admin');
 }
+
+sub delete {
+	my ($self) = @_;
+	my $agency = $self->db->resultset('Agencies')->find(
+		{
+			name => $self->param('name')
+		}
+	);
+	$agency->delete;
+	$self->flash(agency_deleted => 1);
+	$self->redirect_to('admin');
+}
+
 1;

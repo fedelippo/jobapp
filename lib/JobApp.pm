@@ -129,7 +129,9 @@ sub setup_routes {
     $r->get('/admin')->to('admin#overview')->name('admin');
     $r->get('/public')->to('public#overview')->name('public');
     $r->post('/agency/create')->to('agency#create')->name('add_agency');
+    $r->post('/agency/delete')->to('agency#delete')->name('delete_agency');
     $r->post('/job/create')->to('job#create')->name('add_job');
+    $r->post('/job/delete')->to('job#delete')->name('delete_job');
     $r->post('/job/search')->to('job#search')->name('search_job');
     $r->post('/job/interest')->to('job#interest')->name('interest_job');
     $r->post('/job/register-interest')->to('job#register_interest')->name('register_interest_job');
