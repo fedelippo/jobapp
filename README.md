@@ -1,3 +1,11 @@
+JobApp: Simple Mojo application
+===============================
+
+This little web app combine job search capabilities for candidates and jobs management for recruiters.
+This is *only* a proof of concept to prove how easy can be creating an entire web app using Mojolicious and SQLite.
+
+
+
 Setting up an environment for the JobApp application
 =====================================================
 
