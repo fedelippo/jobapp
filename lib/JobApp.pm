@@ -3,6 +3,8 @@ package JobApp;
 use Mojo::Base 'Mojolicious';
 use JobApp::Schema;
 
+our $VERSION = v0.01;
+
 =head1 DESCRIPTION
 
 This is the base JobApp application.
